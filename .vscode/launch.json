@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "name": "Launch .NET Core Web App with Hot Reload",
+            "program": "dotnet",
+            "args": ["watch", "--project", "${workspaceFolder}/GitHubPRAutoApprover.Web"],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "integratedTerminal",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "name": "Launch .NET Core Web App (Normal)",
+            "program": "${workspaceFolder}/GitHubPRAutoApprover.Web/bin/Debug/net9.0/GitHubPRAutoApprover.Web.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GitHubPRAutoApprover.Web",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/GitHubPRAutoApprover.Web/Views"
+            }
+        }
+    ]
+}

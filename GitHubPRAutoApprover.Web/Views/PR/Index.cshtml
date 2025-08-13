@@ -1,0 +1,391 @@
+﻿@{
+    ViewData["Title"] = "GitHub PR Auto Approver";
+    Layout = null;
+}
+@using GitHubPRAutoApprover.Web.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Critical CSS - 内联样式防止闪烁 -->
+    <style>
+        /* Critical styles that need to load immediately */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+            margin: 0;
+        }
+        
+        .card {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: #0d6efd !important;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+        }
+        
+        /* Lighter placeholder text color */
+        .form-control::placeholder {
+            color: #adb5bd !important;
+            opacity: 1;
+        }
+        
+        .form-control::-webkit-input-placeholder {
+            color: #adb5bd !important;
+        }
+        
+        .form-control::-moz-placeholder {
+            color: #adb5bd !important;
+            opacity: 1;
+        }
+        
+        .form-control:-ms-input-placeholder {
+            color: #adb5bd !important;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%) !important;
+            border: none !important;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0b5ed7 0%, #0a58ca 100%) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        }
+        
+        .display-4 {
+            font-weight: 300;
+            color: white !important;
+        }
+        
+        .lead {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        pre {
+            border-radius: 0.375rem;
+        }
+        
+        .card-header {
+            border-bottom: none;
+        }
+
+        .profile-option {
+            position: relative;
+        }
+        
+        .profile-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #dee2e6;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            min-width: 120px;
+        }
+        
+        .profile-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .btn-check:checked + .profile-label {
+            border-color: #0d6efd;
+            background-color: #f8f9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        }
+        
+        .profile-label:hover {
+            border-color: #0d6efd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Loading state to prevent flash */
+        .container-fluid {
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        /* Hide content until fonts are loaded */
+        body.loading .container-fluid {
+            opacity: 0;
+        }
+        
+        /* User dropdown styling */
+        .dropdown-toggle:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            transform: translateY(-1px);
+        }
+        
+        .dropdown button:hover .dropdown-arrow i {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown button[aria-expanded="true"] .dropdown-arrow i {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+            color: white !important;
+        }
+        
+        .dropdown-item:hover .bg-danger {
+            background: white !important;
+        }
+        
+        .dropdown-item:hover .fa-sign-out-alt {
+            color: #dc3545 !important;
+        }
+    </style>
+</head>
+<body class="loading">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <!-- Header Section -->
+                <div class="text-center mb-5 position-relative">
+                    <div class="position-absolute top-0 end-0">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light border-0 px-3 py-2 rounded-pill shadow-sm d-flex align-items-center position-relative" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false"
+                                    style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); transition: all 0.3s ease; white-space: nowrap; min-width: max-content;">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-2" 
+                                         style="width: 32px; height: 32px; flex-shrink: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: 2px solid rgba(255, 255, 255, 0.3); font-weight: bold; font-size: 0.9rem; color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                                        @(Context.Session.GetString("Username")?.Substring(0, 1).ToUpper() ?? "U")
+                                    </div>
+                                    <span class="fw-medium text-white me-2">@Context.Session.GetString("Username")</span>
+                                    <div class="dropdown-arrow">
+                                        <i class="fas fa-chevron-down text-white" style="font-size: 0.7rem; opacity: 0.8; transition: transform 0.3s ease;"></i>
+                                    </div>
+                                </div>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 mt-2" 
+                                style="min-width: max-content; border-radius: 12px;">
+                                <li>
+                                    <a class="dropdown-item py-2 px-3 d-flex align-items-center text-nowrap" 
+                                       href="@Url.Action("Logout", "Account")" 
+                                       style="border-radius: 8px; margin: 4px; transition: all 0.2s ease;">
+                                        <div class="rounded-circle bg-danger d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 28px; height: 28px; flex-shrink: 0;">
+                                            <i class="fas fa-sign-out-alt text-white" style="font-size: 0.75rem;"></i>
+                                        </div>
+                                        <span class="fw-medium text-dark">Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h1 class="display-4 text-primary mb-3">
+                        <i class="fab fa-github me-3"></i>GitHub PR Auto Approver
+                    </h1>
+                    <p class="lead text-muted">Streamline your workflow by automatically approving pull requests</p>
+                </div>
+
+                <!-- Main Form Card -->
+                <div class="card shadow-lg border-0 mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-code-branch me-2"></i>Submit Pull Requests for Approval
+                        </h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="post" asp-controller="PR" asp-action="ApprovePRs">
+                            <!-- Token Selection -->
+                            <div class="form-group mb-4">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-user me-2"></i>Select GitHub Account
+                                </label>
+                                <div class="d-flex flex-wrap gap-3 mt-3">
+                                    @if (ViewBag.AvailableTokens != null)
+                                    {
+                                        @foreach (var token in (List<GitHubTokenConfig>)ViewBag.AvailableTokens)
+                                        {
+                                            <div class="profile-option">
+                                                <input type="radio" class="btn-check token-radio" name="selectedDisplayName" value="@token.DisplayName" id="profile_@token.DisplayName.GetHashCode()" required>
+                                                <label class="profile-label" for="profile_@token.DisplayName.GetHashCode()">
+                                                    <div class="profile-avatar">
+                                                        <i class="fab fa-github fa-2x"></i>
+                                                    </div>
+                                                    <div class="profile-name">@token.DisplayName</div>
+                                                </label>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="prUrls" class="form-label fw-bold">
+                                    <i class="fas fa-link me-2"></i>GitHub PR URLs
+                                </label>
+                                <small class="form-text text-muted d-block mb-2">
+                                    Enter one URL per line. Example: https://github.com/owner/repo/pull/123
+                                </small>
+                                <textarea class="form-control shadow-sm" 
+                                          id="prUrls" 
+                                          name="prUrls" 
+                                          rows="8" 
+                                          style="resize:vertical; font-family: 'Courier New', monospace;"
+                                          placeholder="https://github.com/owner/repo/pull/123&#10;https://github.com/owner/repo/pull/124&#10;https://github.com/owner/repo/pull/125" required></textarea>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-check-circle me-2"></i>Approve Pull Requests
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Status Log Section -->
+                @if (ViewBag.StatusLog != null)
+                {
+                    <div class="card shadow-lg border-0">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-list-alt me-2"></i>Processing Results
+                            </h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <pre class="mb-0 p-3" 
+                                 style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); 
+                                        border: none; 
+                                        height: 300px; 
+                                        overflow: auto; 
+                                        font-family: 'Courier New', monospace; 
+                                        font-size: 0.9rem; 
+                                        line-height: 1.4; 
+                                        white-space: pre-wrap;">@ViewBag.StatusLog</pre>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for saving selection -->
+    <script>
+        // Remove loading class once everything is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove loading class to show content
+            document.body.classList.remove('loading');
+            
+            const STORAGE_KEY = 'github_pr_approver_selected_displayname';
+            
+            // Load saved selection on page load
+            function loadSavedSelection() {
+                const savedDisplayName = localStorage.getItem(STORAGE_KEY);
+                if (savedDisplayName) {
+                    const tokenRadio = document.querySelector(`input[name="selectedDisplayName"][value="${savedDisplayName}"]`);
+                    if (tokenRadio) {
+                        tokenRadio.checked = true;
+                        console.log('Restored saved GitHub account selection:', savedDisplayName);
+                    }
+                }
+            }
+            
+            // Save selection when user makes a choice
+            function saveSelection() {
+                const tokenRadios = document.querySelectorAll('input[name="selectedDisplayName"]');
+                tokenRadios.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        if (this.checked) {
+                            localStorage.setItem(STORAGE_KEY, this.value);
+                            console.log('Saved GitHub account selection:', this.value);
+                            
+                            // Optional: Show a brief notification
+                            showNotification('GitHub account saved!');
+                        }
+                    });
+                });
+            }
+            
+            // Optional: Show notification function
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'alert alert-success position-fixed';
+                notification.style.cssText = `
+                    top: 20px; 
+                    right: 20px; 
+                    z-index: 9999; 
+                    min-width: 250px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                notification.innerHTML = `
+                    <i class="fas fa-check-circle me-2"></i>${message}
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Fade in
+                setTimeout(() => notification.style.opacity = '1', 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => document.body.removeChild(notification), 300);
+                }, 3000);
+            }
+            
+            // Initialize
+            loadSavedSelection();
+            saveSelection();
+        });
+
+        // Also remove loading class when fonts are loaded
+        if (document.fonts) {
+            document.fonts.ready.then(function() {
+                document.body.classList.remove('loading');
+            });
+        }
+    </script>
+</body>
+</html>

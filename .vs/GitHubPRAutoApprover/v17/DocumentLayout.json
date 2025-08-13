@@ -1,0 +1,164 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\controllers\\prcontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\controllers\\prcontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\githubservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\githubservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\views\\pr\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\views\\pr\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|c:\\users\\zhan.lai1\\source\\repos\\githubprautoapprover\\githubprautoapprover.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B00E9205-48B1-466F-B182-D36D123044E2}|GitHubPRAutoApprover.Web\\GitHubPRAutoApprover.Web.csproj|solutionrelative:githubprautoapprover.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GitHubService.cs",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\GitHubService.cs",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\GitHubService.cs",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\GitHubService.cs",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\GitHubService.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAAEkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T07:10:26.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Properties\\launchSettings.json",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-29T07:08:03.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-29T06:44:16.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T06:44:07.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\PR\\Index.cshtml",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\Views\\PR\\Index.cshtml",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\PR\\Index.cshtml",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\Views\\PR\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-29T06:41:54.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PRController1.cs",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Controllers\\PRController1.cs",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\Controllers\\PRController1.cs",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Controllers\\PRController1.cs",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\Controllers\\PRController1.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T06:40:26.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-29T06:38:52.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "GitHubPRAutoApprover.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\zhan.lai1\\source\\repos\\GitHubPRAutoApprover\\GitHubPRAutoApprover.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "GitHubPRAutoApprover.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-29T06:38:47.98Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
