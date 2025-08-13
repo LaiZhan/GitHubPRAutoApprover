@@ -1,4 +1,5 @@
 ﻿# podman build -f GitHubPRAutoApprover.Web/Dockerfile -t registry.cn-shanghai.aliyuncs.com/laizhan/githubprautoapprover:1.0 .
+# podman build --arch amd64 --os linux -f GitHubPRAutoApprover.Web/Dockerfile -t registry.cn-shanghai.aliyuncs.com/laizhan/githubprautoapprover:1.0 .
 # podman-compose up -d
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 USER $APP_UID
